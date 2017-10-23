@@ -1,0 +1,40 @@
+Running time for n = 1024 as outputted
+  
+Regular 1024: 16504 milliseconds 
+Strassen 1024: 1434299 milliseconds
+
+
+Running time for n = 512 as outputted
+  
+Regular 512: 3997 milliseconds
+Strassen 512: 315622 milliseconds
+
+
+Running time for n = 16 as outputted
+  
+Regular 16: 0 milliseconds
+Strassen 16: 42 milliseconds
+
+
+Running time for n = 4 as outputted
+
+Regular 4: 0 milliseconds
+Strassen 4: 5 milliseconds
+
+
+
+The above shows that my Strassen algorithm is slower than by simple multiply algorithm.  However, 
+looking at my code I have 7 recursive calls each of size n/2.  There are two nested for loops which 
+result in n2. By the following master theorem below: 
+  
+
+T(n) = 7T(n/2) + n^2 //7 from 7 recursive calls each of size n/2.  n^2 from the two for loops I have
+a = 7 b = 2 f(n) = n^2
+new poly = n^(log(b2)7) ~ n^2.8
+n^2 = O(n^2.8)
+if E = .7
+n^2 = O(n^2.1)
+so O(n^(log(b2)7)) ~ n^2.8
+
+My algorithm for productStrassen() is faster. For this reason I am not understanding why my Strassen 
+still takes longer when I run them both.
